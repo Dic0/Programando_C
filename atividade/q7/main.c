@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float dias, dia_em_H, divisao_expoente, resultado;
 
@@ -15,4 +15,5 @@ void main()
 
     printf("A resolucao ficou assim: B(t) = 2^(%.0f/12)\n", dia_em_H, resultado);
     printf("O numero de bacterias apos a hora zero sera B(t): %.2f\n", resultado);
+    return 0;
 }

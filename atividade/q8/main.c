@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float tempo, desenvolvimento, resultado, km;
 
@@ -16,4 +16,5 @@ void main()
     printf("A resolucao ficou assim: F(t) = -9 * %.2f^2 + 120^%.2f\n", tempo, tempo);
     printf("A altura em metros sera F(t): %.2fm\n", resultado);
     printf("A altura em km sera F(t): %.2fkm", km);
+    return 0;
 }

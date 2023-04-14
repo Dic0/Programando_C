@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void main()
+int main()
 {
     float num1, num2, num3, num4, num5, resultado;
 
@@ -18,4 +18,5 @@ void main()
     scanf(" %f", &num5);
     resultado = (num1 + num2 + num3 + num4 + num5) / 5.0;
     printf("A media dos valores sao:: %f", resultado);
+    return 0;
 }

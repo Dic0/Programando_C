@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float num1, num2, num3, num4, num5, soma, resultado;
 
@@ -18,6 +18,7 @@ void main()
     printf("Insira o quinto valor: ");
     scanf(" %f", &num5);
     soma = num1 + num2 + num3 + num4 + num5;
-    resultado = pow(soma, 0.25);
+    resultado = pow(soma, 1.0 / 4);
     printf("A raiz quarta do valor %.4f eh: %f", soma, resultado);
+    return 0;
 }

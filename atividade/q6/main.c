@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float capiatal, juros, meses, resolucao, resultado;
 
@@ -17,4 +17,5 @@ void main()
     resultado = capiatal * resolucao;
 
     printf("O motante da sua formula eh: %.4f", resultado);
+    return 0;
 }

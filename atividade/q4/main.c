@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void main()
+int main()
 {
     float prestacao, acrescimo, acrescimo_total, prestacao_acre, desconto, resultado;
 
@@ -15,4 +15,5 @@ void main()
     resultado = prestacao_acre - desconto;
 
     printf("O valor acrecido foi de: %.2f e o valor final a ser pago eh: %.2f", acrescimo_total, resultado);
+    return 0;
 }

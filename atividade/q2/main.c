@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void main()
+int main()
 {
     float num1, resultado;
 
@@ -10,4 +10,5 @@ void main()
     scanf("%f", &num1);
     resultado = num1 / 100000;
     printf("O sua quilomentragem %fkm em centimetros eh: %fcm", num1, resultado);
+    return 0;
 }

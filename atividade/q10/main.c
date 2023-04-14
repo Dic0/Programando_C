@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float coordenadaX1, coordenadaY1, coordenadaX2, coordenadaY2, a, b, resultado;
 
@@ -21,4 +21,5 @@ void main()
     resultado = sqrt(a + b);
 
     printf("A distancia entre a primeira cordenada e a segunda coordenada eh: %.2f", resultado);
+    return 0;
 }

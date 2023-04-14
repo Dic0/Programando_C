@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
     float a, b, c, delta, delta_expo, raiz_delta, raiz1, raiz2;
 
@@ -23,9 +23,11 @@ void main()
         raiz2 = (-b - raiz_delta) / (2 * a);
 
         printf("AS suas raizes seram: %.2f e %.2f", raiz1, raiz2);
+        return 0;
     }
     else
     {
         printf("Sua equacao nao possuira valores reais");
+        return 0;
     }
 }
