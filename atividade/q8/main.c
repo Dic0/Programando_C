@@ -5,11 +5,13 @@
 
 int main()
 {
-    float tempo, desenvolvimento, resultado, km;
+    float tempo, tempo_elevevado, desenvolvimento, resultado, km;
 
     printf("Informe o tempo, em segundos, do projetil: ");
     scanf("%f", &tempo);
-    desenvolvimento = pow(-9 * tempo, 2);
+
+    tempo_elevevado =  pow(tempo,2);
+    desenvolvimento = -9 * tempo_elevevado;
     resultado = desenvolvimento + 120 * tempo;
     km = resultado / 1000;
 
