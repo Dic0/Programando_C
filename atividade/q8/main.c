@@ -11,7 +11,7 @@ int main()
     scanf("%f", &tempo);
 
     tempo_elevevado =  pow(tempo,2);
-    desenvolvimento = -2 * tempo_elevevado;
+    desenvolvimento = -9 * tempo_elevevado;
     resultado = desenvolvimento + 120 * tempo;
     km = resultado / 1000;
 
