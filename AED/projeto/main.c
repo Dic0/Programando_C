@@ -523,7 +523,7 @@ void quadra(TimeBasquete basquete)
 {
 
     int i, a = 0, b = 0, c = 0, d = 0, e = 0;
-    char nomeA, nomeB, nomeC, nomeD, nomeE;
+    char nomeA[50], nomeB[50], nomeC[50], nomeD[50], nomeE[50];
 
     for (i = 0; i < basquete.numJogadores; i++)
     {
@@ -535,23 +535,23 @@ void quadra(TimeBasquete basquete)
         {
         case 'G':
             a = basquete.jogadores[i].numCamisa;
-            nomeA = basquete.jogadores[i].nome;
+            strcpy(nomeA, basquete.jogadores[i].nome);
             break;
         case 'S':
             b = basquete.jogadores[i].numCamisa;
-            nomeB = basquete.jogadores[i].nome;
+            strcpy(nomeB, basquete.jogadores[i].nome);
             break;
         case 'F':
             c = basquete.jogadores[i].numCamisa;
-            nomeC = basquete.jogadores[i].nome;
+            strcpy(nomeC, basquete.jogadores[i].nome);
             break;
         case 'P':
             d = basquete.jogadores[i].numCamisa;
-            nomeD = basquete.jogadores[i].nome;
+            strcpy(nomeD, basquete.jogadores[i].nome);
             break;
         case 'C':
             e = basquete.jogadores[i].numCamisa;
-            nomeE = basquete.jogadores[i].nome;
+            strcpy(nomeE, basquete.jogadores[i].nome);
             break;
         }
     }
@@ -585,7 +585,7 @@ void quadra(TimeBasquete basquete)
     printf("|     |             |                     |             |     |\n");
     printf("---------------------------------------------------------------\n");
     printf("\n\n");
-    printf("\n\tNome do tecnico: %s\n", basquete.tecnico);
+    printf("\nTecnico - %s\n", basquete.tecnico);
     printf("\n");
     printf("\n%d - %s", a, nomeA);
     printf("\n%d - %s", b, nomeB);
