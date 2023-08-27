@@ -5,6 +5,7 @@
 typedef struct _jogador
 {
     char nome[40];
+    char posicao[2];
     float altura;
     int numCamisa, idade, titulosCarreira;
 } Jogador;
@@ -200,6 +201,7 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores)
 {
     Jogador novoJodador;
     char sair = 'n';
+    int opcao;
 
     if (numJogadores == 0)
     {
@@ -207,12 +209,51 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores)
         scanf(" %[^\n]s", novoJodador.nome);
         printf("Escreva a altura do Jogador:");
         scanf("%f", &novoJodador.altura);
-        printf("Escreva o numero da camisa do Jogador:");
-        scanf("%d", &novoJodador.numCamisa);
+        do
+        {
+
+            printf("Digite o numero da camisa do jogador: ");
+            scanf("%3d", &novoJodador.numCamisa);
+
+            if (novoJodador.numCamisa < 10 || novoJodador.numCamisa >= 100)
+            {
+                printf("Digite 2 digitos!\n");
+            }
+        } while (novoJodador.numCamisa < 10 || novoJodador.numCamisa >= 100);
+
         printf("Escreva a idade do Jogador:");
         scanf("%d", &novoJodador.idade);
         printf("Escreva o numero de Titulos da carreira do Jogador:");
         scanf("%d", &novoJodador.titulosCarreira);
+        printf("Escolha o posicionamento do Jogador:\n");
+        printf("1 - Armador (PG):\n");
+        printf("2 - Ala-Armador (SG):\n");
+        printf("3 - Ala (SF):\n");
+        printf("4 - Ala de forca (PF):");
+        printf("5 - Pivo (C):\n");
+        scanf("%d", &opcao);
+
+        switch (opcao)
+        {
+        case 1:
+            strcpy(novoJodador.posicao, "G");
+            break;
+        case 2:
+            strcpy(novoJodador.posicao, "SG");
+            break;
+        case 3:
+            strcpy(novoJodador.posicao, "FS");
+            break;
+        case 4:
+            strcpy(novoJodador.posicao, "PF");
+            break;
+        case 5:
+            strcpy(novoJodador.posicao, "C");
+            break;
+        default:
+            printf("Opcao invalida");
+            break;
+        }
     }
     else
     {
@@ -224,8 +265,17 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores)
 
         do
         {
-            printf("Escreva o numero da camisa do Jogador:");
-            scanf("%d", &novoJodador.numCamisa);
+            do
+            {
+
+                printf("Digite o numero da camisa do jogador: ");
+                scanf("%3d", &novoJodador.numCamisa);
+
+                if (novoJodador.numCamisa < 10 || novoJodador.numCamisa >= 100)
+                {
+                    printf("Digite 2 digitos!\n");
+                }
+            } while (novoJodador.numCamisa < 10 || novoJodador.numCamisa >= 100);
 
             int i, numeroExistente = 0;
 
@@ -253,6 +303,35 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores)
         scanf("%d", &novoJodador.idade);
         printf("Escreva o numero de Titulos da carreira do Jogador:");
         scanf("%d", &novoJodador.titulosCarreira);
+        printf("Escolha o posicionamento do Jogador:\n");
+        printf("1 - Armador (PG):\n");
+        printf("2 - Ala-Armador (SG):\n");
+        printf("3 - Ala (SF):\n");
+        printf("4 - Ala de forca (PF):\n");
+        printf("5 - Pivo (C):\n");
+        scanf("%d", &opcao);
+
+        switch (opcao)
+        {
+        case 1:
+            strcpy(novoJodador.posicao, "G");
+            break;
+        case 2:
+            strcpy(novoJodador.posicao, "SG");
+            break;
+        case 3:
+            strcpy(novoJodador.posicao, "FS");
+            break;
+        case 4:
+            strcpy(novoJodador.posicao, "PF");
+            break;
+        case 5:
+            strcpy(novoJodador.posicao, "C");
+            break;
+        default:
+            printf("Opcao invalida");
+            break;
+        }
     }
 
     return novoJodador;
@@ -284,7 +363,7 @@ void editarJogador(Jogador jogadores[], int numJogadores)
     else
     {
         char nomeJogadores[50];
-        int i, opcao;
+        int i, opcao, opcaoPosicao;
 
         printf("\nEscreva o nome do Jogador que deseja editar: \n");
         scanf(" %[^\n]s", nomeJogadores);
@@ -299,6 +378,7 @@ void editarJogador(Jogador jogadores[], int numJogadores)
                 printf("\n3 - Para editar o numero da camisa do Jogador: ");
                 printf("\n4 - Para editar a idade do Jogador: ");
                 printf("\n5 - Para editar o numero de Titulos da carreira do Jogador: ");
+                printf("\n6 - Para editar o posicionamento do Jogador: ");
                 printf("\n\nSelecione uma opcao: ");
                 scanf("%d", &opcao);
 
@@ -313,8 +393,22 @@ void editarJogador(Jogador jogadores[], int numJogadores)
                     scanf("%f", &jogadores[i].altura);
                     break;
                 case 3:
-                    printf("Digite o novo numero da camisa do jogador: ");
-                    scanf("%d", &jogadores[i].numCamisa);
+                    do
+                    {
+
+                        printf("Digite o novo numero da camisa do jogador: ");
+                        scanf("%3d", &jogadores[i].numCamisa);
+
+                        // Limpa o buffer de entrada para evitar problemas com novas entradas
+                        while (getchar() != '\n')
+                            ;
+
+                        if (jogadores[i].numCamisa < 10 || jogadores[i].numCamisa >= 100)
+                        {
+                            printf("Digite 2 digitos!\n");
+                        }
+                    } while (jogadores[i].numCamisa < 10 || jogadores[i].numCamisa >= 100);
+
                     break;
                 case 4:
                     printf("Digite a nova idade do jogador: ");
@@ -323,6 +417,37 @@ void editarJogador(Jogador jogadores[], int numJogadores)
                 case 5:
                     printf("Digite o novo numero de titulos da carreira do jogador: ");
                     scanf("%d", &jogadores[i].titulosCarreira);
+                    break;
+                case 6:
+                    printf("Escolha o posicionamento do Jogador:");
+                    printf("1 - Armador (PG):");
+                    printf("2 - Ala-Armador (SG):");
+                    printf("3 - Ala (SF):");
+                    printf("4 - Ala de forca (PF):");
+                    printf("5 - Pivo (C):");
+                    scanf("%d", &opcaoPosicao);
+
+                    switch (opcaoPosicao)
+                    {
+                    case 1:
+                        strcpy(jogadores[i].posicao, "G");
+                        break;
+                    case 2:
+                        strcpy(jogadores[i].posicao, "SG");
+                        break;
+                    case 3:
+                        strcpy(jogadores[i].posicao, "FS");
+                        break;
+                    case 4:
+                        strcpy(jogadores[i].posicao, "PF");
+                        break;
+                    case 5:
+                        strcpy(jogadores[i].posicao, "C");
+                        break;
+                    default:
+                        printf("Opcao invalida");
+                        break;
+                    }
                     break;
                 default:
                     printf("\nOpcao Invalida!\n\n");
@@ -373,6 +498,102 @@ void removerJogador(Jogador jogadores[], int numJogador)
     }
 }
 
+int verificarPosicao(TimeBasquete basquete)
+{
+
+    int pg = 0, sg = 0, sf = 0, pf = 0, c = 0, i;
+
+    for (i = 0; i < basquete.numJogadores; i++)
+    {
+        if (strcmp(basquete.jogadores[i].posicao, "G") == 0)
+            pg++;
+        else if (strcmp(basquete.jogadores[i].posicao, "SG") == 0)
+            sg++;
+        else if (strcmp(basquete.jogadores[i].posicao, "FS") == 0)
+            sf++;
+        else if (strcmp(basquete.jogadores[i].posicao, "PF") == 0)
+            pf++;
+        else if (strcmp(basquete.jogadores[i].posicao, "C") == 0)
+            c++;
+    }
+    return (pg >= 1 && sg >= 1 && sf >= 1 && pf >= 1 && c >= 1);
+}
+
+void quadra(TimeBasquete basquete)
+{
+
+    int i, a = 0, b = 0, c = 0, d = 0, e = 0;
+    char nomeA, nomeB, nomeC, nomeD, nomeE;
+
+    for (i = 0; i < basquete.numJogadores; i++)
+    {
+        // Obter a posição do jogador na quadra
+        char posicao = basquete.jogadores[i].posicao[0];
+
+        // Exibir o número da camiseta do jogador na posição correspondent'e na quadra
+        switch (posicao)
+        {
+        case 'G':
+            a = basquete.jogadores[i].numCamisa;
+            nomeA = basquete.jogadores[i].nome;
+            break;
+        case 'S':
+            b = basquete.jogadores[i].numCamisa;
+            nomeB = basquete.jogadores[i].nome;
+            break;
+        case 'F':
+            c = basquete.jogadores[i].numCamisa;
+            nomeC = basquete.jogadores[i].nome;
+            break;
+        case 'P':
+            d = basquete.jogadores[i].numCamisa;
+            nomeD = basquete.jogadores[i].nome;
+            break;
+        case 'C':
+            e = basquete.jogadores[i].numCamisa;
+            nomeE = basquete.jogadores[i].nome;
+            break;
+        }
+    }
+
+    printf("\n---------------------------------------------------------------\n");
+    printf("|                   -                     -                   |\n");
+    printf("|                   -                     -                   |\n");
+    printf("|                    -                   -                    |\n");
+    printf("|                      -       %d      -                      |\n", a);
+    printf("|                         -    PG   -                         |\n");
+    printf("|                                                             |\n");
+    printf("|                                                             |\n");
+    printf("|                    -    -    -    -    -                    |\n");
+    printf("|                -                           -                |\n");
+    printf("|             -               ---               -             |\n");
+    printf("|                          -       -                          |\n");
+    printf("|       %d -             -           -             - %d       |\n", b, c);
+    printf("|       SF          -----------------------          SG       |\n");
+    printf("|       -           |                     |           -       |\n");
+    printf("|                   |                     |                   |\n");
+    printf("|     -             |                     |             -     |\n");
+    printf("|               %d  |                     |                   |\n", d);
+    printf("|     -         PF  |                     |             -     |\n");
+    printf("|     |             |                     |  %d         |     |\n", e);
+    printf("|     |             |                     |  C          |     |\n");
+    printf("|     |             |                     |             |     |\n");
+    printf("|     |             |                     |             |     |\n");
+    printf("|     |             |         ---         |             |     |\n");
+    printf("|     |             |      -       -      |             |     |\n");
+    printf("|     |             |    -   __O__   -    |             |     |\n");
+    printf("|     |             |                     |             |     |\n");
+    printf("---------------------------------------------------------------\n");
+    printf("\n\n");
+    printf("\n\tNome do tecnico: %s\n", basquete.tecnico);
+    printf("\n");
+    printf("\n%d - %s", a, nomeA);
+    printf("\n%d - %s", b, nomeB);
+    printf("\n%d - %s", c, nomeC);
+    printf("\n%d - %s", d, nomeD);
+    printf("\n%d - %s", e, nomeE);
+}
+
 int main()
 {
     TimeBasquete basquete[100];
@@ -388,7 +609,8 @@ int main()
         printf("\n3 - Editar um elemento do time de Basquete:");
         printf("\n4 - Remover um elemento do time de Basquete:");
         printf("\n5 - Criar, editar ou remover um Jogador do time de Basquete:");
-        printf("\n6 - Sair do programa");
+        printf("\n6 - Exibir posicionamento do time em quadra:");
+        printf("\n7 - Sair do programa");
         printf("\n\nSelecione uma opcao: ");
         scanf("%d", &opcao);
         printf("\n\n");
@@ -474,10 +696,34 @@ int main()
             }
             else
             {
-                printf("\nPrimeiro e necessario cadastrar um time!\n");
+                printf("Primeiro e necessario cadastrar um time!\n\n");
             }
 
         case 6:
+            if (numTimes > 0)
+            {
+                listarTimes(basquete, numTimes, opcao);
+                printf("\n\n");
+                printf("Selecione o time no qual deseja exibir em quadra:");
+                scanf("%d", &selecionarTime);
+                if (selecionarTime > 0 && selecionarTime <= numTimes)
+                {
+                    if (verificarPosicao(basquete[selecionarTime - 1]))
+                    {
+                        quadra(basquete[selecionarTime - 1]);
+                    }
+                    else
+                    {
+                        printf("\nO time precisa ter pelo menos um jogador em cada posicao para exibir a quadra!\n\n");
+                    }
+                }
+                else
+                {
+                    printf("\nOpcao inexistente!\n\n");
+                }
+            }
+            break;
+        case 7:
             printf("Deseja sair? (S/N): ");
             scanf(" %c", &sair);
             break;
@@ -485,7 +731,7 @@ int main()
             printf("\nOpcao Invalida!\n\n");
         }
 
-        if (opcao != 6)
+        if (opcao != 7)
         {
             sair = 'n';
         }
