@@ -620,7 +620,7 @@ int main() {
             else {
                 printf("Primeiro e necessario cadastrar um time!\n\n");
             }
-
+            break;
         case 6:
             if (numTimes > 0) {
                 listarTimes(basquete, numTimes, opcao);
