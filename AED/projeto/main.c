@@ -91,7 +91,7 @@ void editarTime(TimeBasquete basquete[], int numTimes) {
         char nomeTimes[50];
         int i, opcao;
 
-        printf("\nEscreva o nome do Time que deseja editar: \n");
+        printf("\nEscolha o numero do Time que deseja editar: \n");
         scanf(" %[^\n]s", nomeTimes);
 
         for (i = 0; i < numTimes; i++) {
@@ -146,7 +146,7 @@ void removerTime(TimeBasquete basquete[], int numTimes) {
         char nomeTime[50];
         int i, encontrei = 0;
 
-        printf("\nEscreva o nome do Time que deseja remover: \n");
+        printf("\nEscolha o numero do Time que deseja remover: \n");
         scanf(" %[^\n]s", nomeTime);
 
         for (i = 0; i < numTimes; i++) {
@@ -317,7 +317,7 @@ void editarJogador(Jogador jogadores[], int numJogadores) {
         char nomeJogadores[50];
         int i, opcao, opcaoPosicao;
 
-        printf("\nEscreva o nome do Jogador que deseja editar: \n");
+        printf("\nEscolha o numero do Jogador que deseja editar: \n");
         scanf(" %[^\n]s", nomeJogadores);
 
         for (i = 0; i < numJogadores; i++) {
@@ -416,7 +416,7 @@ void removerJogador(Jogador jogadores[], int numJogador) {
         char nomeJogadores[50];
         int i, achei = 0;
 
-        printf("\nEscreva o nome do jogador que deseja remover: \n");
+        printf("\nEscolha o numero do jogador que deseja remover: \n");
         scanf(" %[^\n]s", nomeJogadores);
 
         for (i = 0; i < numJogador; i++) {
