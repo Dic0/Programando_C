@@ -198,6 +198,7 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores) {
         printf("3 - Ala (SF):\n");
         printf("4 - Ala de forca (PF):");
         printf("5 - Pivo (C):\n");
+        printf("Posicao: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -267,6 +268,7 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores) {
         printf("3 - Ala (SF):\n");
         printf("4 - Ala de forca (PF):\n");
         printf("5 - Pivo (C):\n");
+        printf("Posicao: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
