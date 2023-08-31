@@ -196,7 +196,7 @@ Jogador cadastrarJogador(Jogador jogadores[], int numJogadores) {
         printf("1 - Armador (PG):\n");
         printf("2 - Ala-Armador (SG):\n");
         printf("3 - Ala (SF):\n");
-        printf("4 - Ala de forca (PF):");
+        printf("4 - Ala de forca (PF):\n");
         printf("5 - Pivo (C):\n");
         printf("Posicao: ");
         scanf("%d", &opcao);
